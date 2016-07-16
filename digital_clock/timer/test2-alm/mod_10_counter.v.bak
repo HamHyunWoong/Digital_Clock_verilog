@@ -1,0 +1,38 @@
+ module mod_10_counter(count,count2,clk,rst);
+   output [3:0] count;
+   output [3:0] count2;
+   input clk;
+   input rst;
+   reg [3:0] counter_out2;
+   reg [3:0] counter_out;
+   
+   always @(posedge clk or negedge rst)
+    begin
+    if(!rst)
+        begin
+          counter_out <=0;
+          counter_out2 <=0;
+        end
+    else if(counter_out <9)
+      begin
+        counter_out <= count +1;
+      end
+    else if(counter_out==9)
+      begin
+        if(counter_out2<9)
+          begin
+          counter_out2 <= count2 +1;
+          end
+        else
+          begin
+          counter_out2 <=0;
+          end
+          
+      end
+    else
+      counter_out <=0;
+    end
+    
+    assign count = counter_out;
+    assign count2 = counter_out2;
+endmodule

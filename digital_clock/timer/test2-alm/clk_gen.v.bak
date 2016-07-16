@@ -1,0 +1,24 @@
+module clk_gen(btn1,btn2,btn3,,btn4clk,rst,clk_out,counter_out,seven_seg1,seven_seg2,seven_seg3,seven_seg4);
+  
+
+  input clk;
+  input rst;
+  input btn1,btn2,btn3,btn4;
+  
+  output clk_out;
+  output [24:0] counter_out;
+  output [6:0] seven_seg1;
+  output [6:0] seven_seg2;
+  output [6:0] seven_seg3;
+  output [6:0] seven_seg4;
+  wire inv_q;
+  wire co;
+  wire [3:0]sec;
+  
+  assign inv_q = !clk_out;
+  
+  counter_mod_25000000 U1 (.count(counter_out),.clk(clk),.rst(rst));
+  dff_async_reset U2 (.data(inv_q),.clk(counter_out[24]),.reset(rst),.q(clk_out));
+  bcd_to_seg BTS(.btn1(btn1),.btn2(btn2),.btn3(btn3),.clk(clk_out),.rst(rst),.display1(seven_seg1),.display2(seven_seg2),.display3(seven_seg3),.display4(seven_seg4));
+  
+endmodule

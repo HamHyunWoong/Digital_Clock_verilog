@@ -1,0 +1,66 @@
+module mod_10_re_counter(btn2,btn3,rst,clk,count);
+    output [3:0] count;
+	 output [3:0] carry;
+	 
+	 input btn2;
+	 input btn3;
+    input clk;
+    input rst;
+	 
+	 reg [3:0] counter_out;
+	 reg [3:0] carry_out;
+	 
+	 wire btn3_tap;
+	 wire btn2_tap;
+	
+	 assign btn3_tap = btn3;
+    assign btn2_tap = btn2;
+	 
+	 
+	 always @(posedge (clk||!btn3_tap ||!btn2_tap) or negedge rst )
+    begin
+	 if(!rst)
+        begin
+          counter_out <=0;
+			 carry_out <=0;
+		  end
+	 else if(counter_out <9 && btn2_tap != 0) ////////////pls mod
+      begin
+        counter_out <= count +1;
+      end
+	 else if(counter_out==9 && btn2_tap != 0 )
+      begin
+		  counter_out <= 0;
+		  carry_out <= carry +1;
+		end
+	 /////////////////////////////////////////////////////////
+	 
+	 
+	 else if (counter_out>0 && btn2_tap != 1) //////////min mod
+		begin
+			counter_out <= count1 -1;
+		end
+	 else if(counter_out==0 && btn2_tap != 1)
+		begin
+			counter_out <= count1 +9;
+			carry_out <= carry -1;
+		end
+		
+	 else
+		begin
+			counter_out <=0;
+			carry <= 0;
+		end
+	 end
+	 assign count = counter_out;
+	 assign carry = carry_out;
+endmodule
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 

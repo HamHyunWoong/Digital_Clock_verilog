@@ -1,0 +1,26 @@
+module bcd_to_seg(btn1,btn2,btn3,btn4,rst,clk,display1,display2,display3,display4);
+   input clk,rst;
+	input btn1,btn2,btn3,btn4;
+   output [6:0] display1,display2,display3,display4;
+   
+   wire [3:0]count1;
+   wire [3:0]count2;
+	wire [3:0]count3;
+	wire [3:0]count4;
+	
+	
+	wire clk_tap;
+	wire selectout;
+	
+	state_mod SM(.clk(clk),.btn1(btn1),.btn4(btn4),.clk_out(clk_tap).selectout(selectout));
+	
+		
+	mod_10_counter CNT(.btn2(btn2),.btn3(btn3),.rst(rst),.clk(clk_tap),.count1(count1),.count2(count2),.count3(count3),.count4(count4));
+   
+   seven_seg_decoder SSD1(.bcd_in(count1),.display(display1));
+   seven_seg_decoder SSD2(.bcd_in(count2),.display(display2));
+	seven_seg_decoder SSD3(.bcd_in(count3),.display(display3));
+	seven_seg_decoder SSD4(.bcd_in(count4),.display(display4));
+   
+   
+endmodule

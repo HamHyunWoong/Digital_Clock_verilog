@@ -1,0 +1,953 @@
+Analysis & Synthesis report for clk_gen
+Tue Dec 15 17:07:10 2015
+Quartus II 32-bit Version 11.1 Build 173 11/01/2011 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: seven_seg_decoder:SSD1
+ 13. Parameter Settings for User Entity Instance: seven_seg_decoder:SSD2
+ 14. Parameter Settings for User Entity Instance: seven_seg_decoder:SSD3
+ 15. Parameter Settings for User Entity Instance: seven_seg_decoder:SSD4
+ 16. Parameter Settings for User Entity Instance: seven_seg_decoder:SSD5
+ 17. Parameter Settings for User Entity Instance: seven_seg_decoder:SSD6
+ 18. Parameter Settings for User Entity Instance: seven_seg_AP_decoder:APD
+ 19. Parameter Settings for User Entity Instance: seven_seg_decoder:SSD8
+ 20. Port Connectivity Checks: "bcd_to_seg:BTS|mod_24_re_counter:CNT24"
+ 21. Port Connectivity Checks: "bcd_to_seg:BTS|mod_06_re_counter:CNT4"
+ 22. Port Connectivity Checks: "bcd_to_seg:BTS|mod_10_re_counter:CNT3"
+ 23. Port Connectivity Checks: "bcd_to_seg:BTS|mod_06_re_counter:CNT2"
+ 24. Port Connectivity Checks: "bcd_to_seg:BTS|mod_10_re_counter:CNT1"
+ 25. Port Connectivity Checks: "counter_mod_25000000:U1"
+ 26. Port Connectivity Checks: "mode_selector:M1"
+ 27. Port Connectivity Checks: "alm:AL|mod_24_re_counter:CNT2424"
+ 28. Port Connectivity Checks: "alm:AL|mod_06_re_counter:CNT44"
+ 29. Port Connectivity Checks: "alm:AL|mod_10_re_counter:CNT33"
+ 30. Port Connectivity Checks: "alm:AL|mod_06_re_counter:CNT22"
+ 31. Port Connectivity Checks: "alm:AL|mod_10_re_counter:CNT11"
+ 32. Port Connectivity Checks: "alm:AL"
+ 33. Port Connectivity Checks: "seven_seg_decoder:SSD8"
+ 34. Port Connectivity Checks: "seven_seg_AP_decoder:APD"
+ 35. Port Connectivity Checks: "seven_seg_decoder:SSD6"
+ 36. Port Connectivity Checks: "seven_seg_decoder:SSD5"
+ 37. Port Connectivity Checks: "seven_seg_decoder:SSD4"
+ 38. Port Connectivity Checks: "seven_seg_decoder:SSD3"
+ 39. Port Connectivity Checks: "seven_seg_decoder:SSD2"
+ 40. Port Connectivity Checks: "seven_seg_decoder:SSD1"
+ 41. Elapsed Time Per Partition
+ 42. Analysis & Synthesis Messages
+ 43. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Dec 15 17:07:10 2015    ;
+; Quartus II 32-bit Version          ; 11.1 Build 173 11/01/2011 SJ Web Edition ;
+; Revision Name                      ; clk_gen                                  ;
+; Top-level Entity Name              ; clk_gen                                  ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 166                                      ;
+;     Total combinational functions  ; 166                                      ;
+;     Dedicated logic registers      ; 56                                       ;
+; Total registers                    ; 56                                       ;
+; Total pins                         ; 75                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; clk_gen            ; clk_gen            ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; Off                ; Off                ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                              ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+
+; seven_seg_decoder.v              ; yes             ; User Verilog HDL File        ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/seven_seg_decoder.v    ;
+; dff_async_reset.v                ; yes             ; User Verilog HDL File        ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/dff_async_reset.v      ;
+; counter_mod_25000000.v           ; yes             ; User Verilog HDL File        ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/counter_mod_25000000.v ;
+; clk_gen.v                        ; yes             ; User Verilog HDL File        ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/clk_gen.v              ;
+; bcd_to_seg.v                     ; yes             ; User Verilog HDL File        ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/bcd_to_seg.v           ;
+; mod_6_re_counter.v               ; yes             ; User Verilog HDL File        ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/mod_6_re_counter.v     ;
+; mod_10_re_counter.v              ; yes             ; User Verilog HDL File        ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/mod_10_re_counter.v    ;
+; mod_24_re_counter.v              ; yes             ; User Verilog HDL File        ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/mod_24_re_counter.v    ;
+; led_counter_decoder.v            ; yes             ; User Verilog HDL File        ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/led_counter_decoder.v  ;
+; seven_seg_ap_decoder.v           ; yes             ; Auto-Found Verilog HDL File  ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/seven_seg_ap_decoder.v ;
+; alm.v                            ; yes             ; Auto-Found Verilog HDL File  ; D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/alm.v                  ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 166   ;
+;                                             ;       ;
+; Total combinational functions               ; 166   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 93    ;
+;     -- 3 input functions                    ; 22    ;
+;     -- <=2 input functions                  ; 51    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 139   ;
+;     -- arithmetic mode                      ; 27    ;
+;                                             ;       ;
+; Total registers                             ; 56    ;
+;     -- Dedicated logic registers            ; 56    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 75    ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 34    ;
+; Total fan-out                               ; 759   ;
+; Average fan-out                             ; 2.56  ;
++---------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                          ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Library Name ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; |clk_gen                        ; 166 (0)           ; 56 (0)       ; 0           ; 0            ; 0       ; 0         ; 75   ; 0            ; |clk_gen                                        ;              ;
+;    |bcd_to_seg:BTS|             ; 59 (21)           ; 27 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|bcd_to_seg:BTS                         ;              ;
+;       |mod_06_re_counter:CNT2|  ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|bcd_to_seg:BTS|mod_06_re_counter:CNT2  ;              ;
+;       |mod_06_re_counter:CNT4|  ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|bcd_to_seg:BTS|mod_06_re_counter:CNT4  ;              ;
+;       |mod_10_re_counter:CNT1|  ; 6 (6)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|bcd_to_seg:BTS|mod_10_re_counter:CNT1  ;              ;
+;       |mod_10_re_counter:CNT3|  ; 6 (6)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|bcd_to_seg:BTS|mod_10_re_counter:CNT3  ;              ;
+;       |mod_24_re_counter:CNT24| ; 18 (18)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|bcd_to_seg:BTS|mod_24_re_counter:CNT24 ;              ;
+;    |counter_mod_25000000:U1|    ; 36 (36)           ; 25 (25)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|counter_mod_25000000:U1                ;              ;
+;    |dff_async_reset:U2|         ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|dff_async_reset:U2                     ;              ;
+;    |led_counter_decoder:LD|     ; 26 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|led_counter_decoder:LD                 ;              ;
+;    |mode_selector:M1|           ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|mode_selector:M1                       ;              ;
+;    |seven_seg_decoder:SSD1|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|seven_seg_decoder:SSD1                 ;              ;
+;    |seven_seg_decoder:SSD2|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|seven_seg_decoder:SSD2                 ;              ;
+;    |seven_seg_decoder:SSD3|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|seven_seg_decoder:SSD3                 ;              ;
+;    |seven_seg_decoder:SSD4|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|seven_seg_decoder:SSD4                 ;              ;
+;    |seven_seg_decoder:SSD5|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|seven_seg_decoder:SSD5                 ;              ;
+;    |seven_seg_decoder:SSD6|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |clk_gen|seven_seg_decoder:SSD6                 ;              ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                         ;
++----------------------------------------------------+-------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal           ; Free of Timing Hazards ;
++----------------------------------------------------+-------------------------------+------------------------+
+; led_counter_decoder:LD|LEDR0                       ; led_counter_decoder:LD|LEDR0  ; yes                    ;
+; led_counter_decoder:LD|LEDR1                       ; led_counter_decoder:LD|LEDR0  ; yes                    ;
+; led_counter_decoder:LD|LEDR2                       ; led_counter_decoder:LD|LEDR0  ; yes                    ;
+; led_counter_decoder:LD|LEDR3                       ; led_counter_decoder:LD|LEDR0  ; yes                    ;
+; led_counter_decoder:LD|LEDR4                       ; led_counter_decoder:LD|LEDR0  ; yes                    ;
+; led_counter_decoder:LD|LEDR5                       ; led_counter_decoder:LD|LEDR0  ; yes                    ;
+; led_counter_decoder:LD|LEDR6                       ; led_counter_decoder:LD|LEDR0  ; yes                    ;
+; led_counter_decoder:LD|LEDR7                       ; led_counter_decoder:LD|LEDR0  ; yes                    ;
+; led_counter_decoder:LD|LEDR8                       ; led_counter_decoder:LD|Equal0 ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                               ;                        ;
++----------------------------------------------------+-------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                      ;
++------------------------------------------------+----------------------------------------+
+; Register name                                  ; Reason for Removal                     ;
++------------------------------------------------+----------------------------------------+
+; bcd_to_seg:BTS|mod_06_re_counter:CNT2|count[3] ; Stuck at GND due to stuck port data_in ;
+; bcd_to_seg:BTS|mod_06_re_counter:CNT4|count[3] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 2          ;                                        ;
++------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 56    ;
+; Number of registers using Synchronous Clear  ; 29    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 26    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 4     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+--------------------------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                                   ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+--------------------------------------------------------------+----------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |clk_gen|bcd_to_seg:BTS|mod_24_re_counter:CNT24|count_ten[3] ;                            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |clk_gen|bcd_to_seg:BTS|mod_24_re_counter:CNT24|count[3]     ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+--------------------------------------------------------------+----------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: seven_seg_decoder:SSD1 ;
++----------------+---------+------------------------------------------+
+; Parameter Name ; Value   ; Type                                     ;
++----------------+---------+------------------------------------------+
+; BLANK          ; 1111111 ; Unsigned Binary                          ;
+; ZERO           ; 1000000 ; Unsigned Binary                          ;
+; ONE            ; 1111001 ; Unsigned Binary                          ;
+; TWO            ; 0100100 ; Unsigned Binary                          ;
+; THREE          ; 0110000 ; Unsigned Binary                          ;
+; FOUR           ; 0011001 ; Unsigned Binary                          ;
+; FIVE           ; 0010010 ; Unsigned Binary                          ;
+; SIX            ; 0000010 ; Unsigned Binary                          ;
+; SEVEN          ; 1111000 ; Unsigned Binary                          ;
+; EIGHT          ; 0000000 ; Unsigned Binary                          ;
+; NINE           ; 0010000 ; Unsigned Binary                          ;
++----------------+---------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: seven_seg_decoder:SSD2 ;
++----------------+---------+------------------------------------------+
+; Parameter Name ; Value   ; Type                                     ;
++----------------+---------+------------------------------------------+
+; BLANK          ; 1111111 ; Unsigned Binary                          ;
+; ZERO           ; 1000000 ; Unsigned Binary                          ;
+; ONE            ; 1111001 ; Unsigned Binary                          ;
+; TWO            ; 0100100 ; Unsigned Binary                          ;
+; THREE          ; 0110000 ; Unsigned Binary                          ;
+; FOUR           ; 0011001 ; Unsigned Binary                          ;
+; FIVE           ; 0010010 ; Unsigned Binary                          ;
+; SIX            ; 0000010 ; Unsigned Binary                          ;
+; SEVEN          ; 1111000 ; Unsigned Binary                          ;
+; EIGHT          ; 0000000 ; Unsigned Binary                          ;
+; NINE           ; 0010000 ; Unsigned Binary                          ;
++----------------+---------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: seven_seg_decoder:SSD3 ;
++----------------+---------+------------------------------------------+
+; Parameter Name ; Value   ; Type                                     ;
++----------------+---------+------------------------------------------+
+; BLANK          ; 1111111 ; Unsigned Binary                          ;
+; ZERO           ; 1000000 ; Unsigned Binary                          ;
+; ONE            ; 1111001 ; Unsigned Binary                          ;
+; TWO            ; 0100100 ; Unsigned Binary                          ;
+; THREE          ; 0110000 ; Unsigned Binary                          ;
+; FOUR           ; 0011001 ; Unsigned Binary                          ;
+; FIVE           ; 0010010 ; Unsigned Binary                          ;
+; SIX            ; 0000010 ; Unsigned Binary                          ;
+; SEVEN          ; 1111000 ; Unsigned Binary                          ;
+; EIGHT          ; 0000000 ; Unsigned Binary                          ;
+; NINE           ; 0010000 ; Unsigned Binary                          ;
++----------------+---------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: seven_seg_decoder:SSD4 ;
++----------------+---------+------------------------------------------+
+; Parameter Name ; Value   ; Type                                     ;
++----------------+---------+------------------------------------------+
+; BLANK          ; 1111111 ; Unsigned Binary                          ;
+; ZERO           ; 1000000 ; Unsigned Binary                          ;
+; ONE            ; 1111001 ; Unsigned Binary                          ;
+; TWO            ; 0100100 ; Unsigned Binary                          ;
+; THREE          ; 0110000 ; Unsigned Binary                          ;
+; FOUR           ; 0011001 ; Unsigned Binary                          ;
+; FIVE           ; 0010010 ; Unsigned Binary                          ;
+; SIX            ; 0000010 ; Unsigned Binary                          ;
+; SEVEN          ; 1111000 ; Unsigned Binary                          ;
+; EIGHT          ; 0000000 ; Unsigned Binary                          ;
+; NINE           ; 0010000 ; Unsigned Binary                          ;
++----------------+---------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: seven_seg_decoder:SSD5 ;
++----------------+---------+------------------------------------------+
+; Parameter Name ; Value   ; Type                                     ;
++----------------+---------+------------------------------------------+
+; BLANK          ; 1111111 ; Unsigned Binary                          ;
+; ZERO           ; 1000000 ; Unsigned Binary                          ;
+; ONE            ; 1111001 ; Unsigned Binary                          ;
+; TWO            ; 0100100 ; Unsigned Binary                          ;
+; THREE          ; 0110000 ; Unsigned Binary                          ;
+; FOUR           ; 0011001 ; Unsigned Binary                          ;
+; FIVE           ; 0010010 ; Unsigned Binary                          ;
+; SIX            ; 0000010 ; Unsigned Binary                          ;
+; SEVEN          ; 1111000 ; Unsigned Binary                          ;
+; EIGHT          ; 0000000 ; Unsigned Binary                          ;
+; NINE           ; 0010000 ; Unsigned Binary                          ;
++----------------+---------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: seven_seg_decoder:SSD6 ;
++----------------+---------+------------------------------------------+
+; Parameter Name ; Value   ; Type                                     ;
++----------------+---------+------------------------------------------+
+; BLANK          ; 1111111 ; Unsigned Binary                          ;
+; ZERO           ; 1000000 ; Unsigned Binary                          ;
+; ONE            ; 1111001 ; Unsigned Binary                          ;
+; TWO            ; 0100100 ; Unsigned Binary                          ;
+; THREE          ; 0110000 ; Unsigned Binary                          ;
+; FOUR           ; 0011001 ; Unsigned Binary                          ;
+; FIVE           ; 0010010 ; Unsigned Binary                          ;
+; SIX            ; 0000010 ; Unsigned Binary                          ;
+; SEVEN          ; 1111000 ; Unsigned Binary                          ;
+; EIGHT          ; 0000000 ; Unsigned Binary                          ;
+; NINE           ; 0010000 ; Unsigned Binary                          ;
++----------------+---------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: seven_seg_AP_decoder:APD ;
++----------------+---------+--------------------------------------------+
+; Parameter Name ; Value   ; Type                                       ;
++----------------+---------+--------------------------------------------+
+; BLANK          ; 1111111 ; Unsigned Binary                            ;
+; AM             ; 0001000 ; Unsigned Binary                            ;
+; PM             ; 0001100 ; Unsigned Binary                            ;
++----------------+---------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: seven_seg_decoder:SSD8 ;
++----------------+---------+------------------------------------------+
+; Parameter Name ; Value   ; Type                                     ;
++----------------+---------+------------------------------------------+
+; BLANK          ; 1111111 ; Unsigned Binary                          ;
+; ZERO           ; 1000000 ; Unsigned Binary                          ;
+; ONE            ; 1111001 ; Unsigned Binary                          ;
+; TWO            ; 0100100 ; Unsigned Binary                          ;
+; THREE          ; 0110000 ; Unsigned Binary                          ;
+; FOUR           ; 0011001 ; Unsigned Binary                          ;
+; FIVE           ; 0010010 ; Unsigned Binary                          ;
+; SIX            ; 0000010 ; Unsigned Binary                          ;
+; SEVEN          ; 1111000 ; Unsigned Binary                          ;
+; EIGHT          ; 0000000 ; Unsigned Binary                          ;
+; NINE           ; 0010000 ; Unsigned Binary                          ;
++----------------+---------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bcd_to_seg:BTS|mod_24_re_counter:CNT24"                                                                                                                                  ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tap_out ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "tap_out[1..1]" will be connected to GND.                       ;
+; carry_p ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
+; ampm    ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (2 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bcd_to_seg:BTS|mod_06_re_counter:CNT4"                                                                                                          ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                      ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; minus   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; button3 ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; button4 ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; carry_m ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bcd_to_seg:BTS|mod_10_re_counter:CNT3"                                                                                                            ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                         ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; tap_out ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "tap_out[1..1]" will be connected to GND. ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bcd_to_seg:BTS|mod_06_re_counter:CNT2"                                                                                                          ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                      ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; minus   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; button3 ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; button4 ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; carry_m ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bcd_to_seg:BTS|mod_10_re_counter:CNT1"                                                                                                            ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                         ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; tap_out ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "tap_out[1..1]" will be connected to GND. ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "counter_mod_25000000:U1"                                                                    ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; count[23..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mode_selector:M1"                                                                          ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; sw1_button3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sw2_button3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; switch1     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; switch2     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; switch1and2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alm:AL|mod_24_re_counter:CNT2424"                                                                                                                  ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                         ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; tap_out ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "tap_out[1..1]" will be connected to GND. ;
+; carry_p ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                             ;
+; ampm    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alm:AL|mod_06_re_counter:CNT44"                                                                                                                 ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                      ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; minus   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; button3 ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; button4 ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; carry_m ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alm:AL|mod_10_re_counter:CNT33"                                                                                                                   ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                         ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; tap_out ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "tap_out[1..1]" will be connected to GND. ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alm:AL|mod_06_re_counter:CNT22"                                                                                                                 ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                      ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; count   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; minus   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; button3 ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; button4 ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; carry_m ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alm:AL|mod_10_re_counter:CNT11"                                                                                                                    ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                         ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; tap_out ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "tap_out[1..1]" will be connected to GND. ;
+; count   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                             ;
+; button3 ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND.    ;
++---------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alm:AL"                                                                                      ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; blink_count11 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; blink_count22 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; blink_count33 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; blink_count44 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; blink_count55 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; blink_count66 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; LED_alm       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:SSD8"                                                                                                                                                                  ;
++-------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                                                            ;
++-------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; bcd_in      ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (4 bits) it drives.  The 28 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; bcd_in[3]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; bcd_in[2]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; bcd_in[1]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; bcd_in[0]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; game_bcd_in ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "game_bcd_in[3..1]" will be connected to GND.                                ;
++-------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_AP_decoder:APD"                                                                                                                       ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                        ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; bcd_in ; Input ; Warning  ; Input port expression (2 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "bcd_in[3..2]" will be connected to GND. ;
++--------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:SSD6"                                                                                                                                   ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                             ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; game_bcd_in ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "game_bcd_in[3..1]" will be connected to GND. ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:SSD5"                                                                                                                                   ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                             ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; game_bcd_in ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "game_bcd_in[3..1]" will be connected to GND. ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:SSD4"                                                                                                                                   ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                             ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; game_bcd_in ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "game_bcd_in[3..1]" will be connected to GND. ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:SSD3"                                                                                                                                   ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                             ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; game_bcd_in ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "game_bcd_in[3..1]" will be connected to GND. ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:SSD2"                                                                                                                                   ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                             ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; game_bcd_in ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "game_bcd_in[3..1]" will be connected to GND. ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_seg_decoder:SSD1"                                                                                                                                   ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                             ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; game_bcd_in ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "game_bcd_in[3..1]" will be connected to GND. ;
++-------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 11.1 Build 173 11/01/2011 SJ Web Edition
+    Info: Processing started: Tue Dec 15 17:07:03 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off clk_gen -c clk_gen
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file seven_seg_decoder.v
+    Info (12023): Found entity 1: seven_seg_decoder
+Warning (10263): Verilog HDL Event Control warning at mod_10_counter.v(28): event expression contains "|" or "||"
+Info (12021): Found 1 design units, including 1 entities, in source file mod_10_counter.v
+    Info (12023): Found entity 1: mod_10_counter
+Info (12021): Found 1 design units, including 1 entities, in source file dff_async_reset.v
+    Info (12023): Found entity 1: dff_async_reset
+Info (12021): Found 1 design units, including 1 entities, in source file counter_mod_25000000.v
+    Info (12023): Found entity 1: counter_mod_25000000
+Info (12021): Found 2 design units, including 2 entities, in source file clk_gen.v
+    Info (12023): Found entity 1: clk_gen
+    Info (12023): Found entity 2: mode_selector
+Info (12021): Found 1 design units, including 1 entities, in source file bcd_to_seg.v
+    Info (12023): Found entity 1: bcd_to_seg
+Info (12021): Found 1 design units, including 1 entities, in source file mod_6_re_counter.v
+    Info (12023): Found entity 1: mod_06_re_counter
+Info (12021): Found 1 design units, including 1 entities, in source file mod_10_re_counter.v
+    Info (12023): Found entity 1: mod_10_re_counter
+Info (12021): Found 1 design units, including 1 entities, in source file mod_24_re_counter.v
+    Info (12023): Found entity 1: mod_24_re_counter
+Info (12021): Found 1 design units, including 1 entities, in source file mod_12_re_counter.v
+    Info (12023): Found entity 1: mod_12_re_counter
+Info (12021): Found 1 design units, including 1 entities, in source file led_counter_decoder.v
+    Info (12023): Found entity 1: led_counter_decoder
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(45): created implicit net for "game_count1"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(46): created implicit net for "game_count2"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(47): created implicit net for "game_count3"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(48): created implicit net for "game_count4"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(49): created implicit net for "game_count5"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(50): created implicit net for "game_count6"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(52): created implicit net for "game_count8"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(56): created implicit net for "button"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(65): created implicit net for "sw1_button3"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(65): created implicit net for "sw2_button3"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(66): created implicit net for "switch1"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(66): created implicit net for "switch2"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(67): created implicit net for "switch1and2"
+Warning (10236): Verilog HDL Implicit Net warning at clk_gen.v(93): created implicit net for "toggle_key"
+Info (12127): Elaborating entity "clk_gen" for the top level hierarchy
+Warning (10034): Output port "LEDR9" at clk_gen.v(25) has no driver
+Info (12128): Elaborating entity "seven_seg_decoder" for hierarchy "seven_seg_decoder:SSD1"
+Warning (12125): Using design file seven_seg_ap_decoder.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: seven_seg_AP_decoder
+Info (12128): Elaborating entity "seven_seg_AP_decoder" for hierarchy "seven_seg_AP_decoder:APD"
+Warning (10238): Verilog Module Declaration warning at alm.v(4): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "alm"
+Warning (12125): Using design file alm.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: alm
+Warning (10236): Verilog HDL Implicit Net warning at alm.v(31): created implicit net for "blink_count1"
+Warning (10236): Verilog HDL Implicit Net warning at alm.v(32): created implicit net for "blink_count2"
+Warning (10236): Verilog HDL Implicit Net warning at alm.v(33): created implicit net for "blink_count3"
+Warning (10236): Verilog HDL Implicit Net warning at alm.v(34): created implicit net for "blink_count4"
+Warning (10236): Verilog HDL Implicit Net warning at alm.v(35): created implicit net for "blink_count5"
+Warning (10236): Verilog HDL Implicit Net warning at alm.v(36): created implicit net for "blink_count6"
+Warning (10236): Verilog HDL Implicit Net warning at alm.v(74): created implicit net for "ampm"
+Info (12128): Elaborating entity "alm" for hierarchy "alm:AL"
+Warning (10036): Verilog HDL or VHDL warning at alm.v(31): object "blink_count1" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at alm.v(32): object "blink_count2" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at alm.v(33): object "blink_count3" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at alm.v(34): object "blink_count4" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at alm.v(35): object "blink_count5" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at alm.v(36): object "blink_count6" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at alm.v(29): object "alm_AP" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at alm.v(31): truncated value with size 4 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at alm.v(32): truncated value with size 4 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at alm.v(33): truncated value with size 4 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at alm.v(34): truncated value with size 4 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at alm.v(35): truncated value with size 4 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at alm.v(36): truncated value with size 4 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at alm.v(43): truncated value with size 4 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at alm.v(44): truncated value with size 4 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at alm.v(45): truncated value with size 4 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at alm.v(46): truncated value with size 4 to match size of target (1)
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "alm_min01", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "alm_min10", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "alm_hou01", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "alm_hou10", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "blink_count11", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "blink_count22", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "blink_count33", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "blink_count44", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "blink_count55", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at alm.v(38): inferring latch(es) for variable "blink_count66", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "blink_count66[0]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count66[1]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count66[2]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count66[3]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count55[0]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count55[1]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count55[2]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count55[3]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count44[0]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count44[1]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count44[2]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count44[3]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count33[0]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count33[1]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count33[2]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count33[3]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count22[0]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count22[1]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count22[2]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count22[3]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count11[0]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count11[1]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count11[2]" at alm.v(38)
+Info (10041): Inferred latch for "blink_count11[3]" at alm.v(38)
+Info (10041): Inferred latch for "alm_hou10" at alm.v(38)
+Info (10041): Inferred latch for "alm_hou01" at alm.v(38)
+Info (10041): Inferred latch for "alm_min10" at alm.v(38)
+Info (10041): Inferred latch for "alm_min01" at alm.v(38)
+Info (12128): Elaborating entity "mod_10_re_counter" for hierarchy "alm:AL|mod_10_re_counter:CNT11"
+Warning (10230): Verilog HDL assignment warning at mod_10_re_counter.v(13): truncated value with size 32 to match size of target (4)
+Info (12128): Elaborating entity "mod_06_re_counter" for hierarchy "alm:AL|mod_06_re_counter:CNT22"
+Warning (10230): Verilog HDL assignment warning at mod_6_re_counter.v(19): truncated value with size 32 to match size of target (4)
+Warning (10034): Output port "carry_m" at mod_6_re_counter.v(4) has no driver
+Info (12128): Elaborating entity "mod_24_re_counter" for hierarchy "alm:AL|mod_24_re_counter:CNT2424"
+Warning (10230): Verilog HDL assignment warning at mod_24_re_counter.v(17): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at mod_24_re_counter.v(21): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at mod_24_re_counter.v(34): truncated value with size 32 to match size of target (4)
+Warning (10034): Output port "carry_p" at mod_24_re_counter.v(4) has no driver
+Info (12128): Elaborating entity "led_counter_decoder" for hierarchy "led_counter_decoder:LD"
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(36): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(48): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(49): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(60): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(61): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(62): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(72): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(73): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(74): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(75): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(84): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(85): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(86): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(87): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(88): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(96): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(97): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(98): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(99): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(100): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(101): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(108): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(109): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(110): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(111): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(112): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(113): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(114): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(120): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(121): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(122): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(123): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(124): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(125): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(126): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(127): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(132): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(133): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(134): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(135): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(136): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(137): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(138): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(139): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at led_counter_decoder.v(140): variable "clk" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at led_counter_decoder.v(20): inferring latch(es) for variable "LEDR0", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at led_counter_decoder.v(20): inferring latch(es) for variable "LEDR1", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at led_counter_decoder.v(20): inferring latch(es) for variable "LEDR2", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at led_counter_decoder.v(20): inferring latch(es) for variable "LEDR3", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at led_counter_decoder.v(20): inferring latch(es) for variable "LEDR4", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at led_counter_decoder.v(20): inferring latch(es) for variable "LEDR5", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at led_counter_decoder.v(20): inferring latch(es) for variable "LEDR6", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at led_counter_decoder.v(20): inferring latch(es) for variable "LEDR7", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at led_counter_decoder.v(20): inferring latch(es) for variable "LEDR8", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "LEDR8" at led_counter_decoder.v(34)
+Info (10041): Inferred latch for "LEDR7" at led_counter_decoder.v(34)
+Info (10041): Inferred latch for "LEDR6" at led_counter_decoder.v(34)
+Info (10041): Inferred latch for "LEDR5" at led_counter_decoder.v(34)
+Info (10041): Inferred latch for "LEDR4" at led_counter_decoder.v(34)
+Info (10041): Inferred latch for "LEDR3" at led_counter_decoder.v(34)
+Info (10041): Inferred latch for "LEDR2" at led_counter_decoder.v(34)
+Info (10041): Inferred latch for "LEDR1" at led_counter_decoder.v(34)
+Info (10041): Inferred latch for "LEDR0" at led_counter_decoder.v(34)
+Info (12128): Elaborating entity "mode_selector" for hierarchy "mode_selector:M1"
+Warning (10230): Verilog HDL assignment warning at clk_gen.v(105): truncated value with size 32 to match size of target (2)
+Info (12128): Elaborating entity "counter_mod_25000000" for hierarchy "counter_mod_25000000:U1"
+Warning (10230): Verilog HDL assignment warning at counter_mod_25000000.v(16): truncated value with size 32 to match size of target (25)
+Info (12128): Elaborating entity "dff_async_reset" for hierarchy "dff_async_reset:U2"
+Info (12128): Elaborating entity "bcd_to_seg" for hierarchy "bcd_to_seg:BTS"
+Warning (12241): 18 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch led_counter_decoder:LD|LEDR0 has unsafe behavior
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal bcd_to_seg:BTS|mod_10_re_counter:CNT1|count[3]
+Warning (13012): Latch led_counter_decoder:LD|LEDR1 has unsafe behavior
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal bcd_to_seg:BTS|mod_10_re_counter:CNT1|count[3]
+Warning (13012): Latch led_counter_decoder:LD|LEDR2 has unsafe behavior
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal bcd_to_seg:BTS|mod_10_re_counter:CNT1|count[3]
+Warning (13012): Latch led_counter_decoder:LD|LEDR3 has unsafe behavior
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal bcd_to_seg:BTS|mod_10_re_counter:CNT1|count[3]
+Warning (13012): Latch led_counter_decoder:LD|LEDR4 has unsafe behavior
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal bcd_to_seg:BTS|mod_10_re_counter:CNT1|count[3]
+Warning (13012): Latch led_counter_decoder:LD|LEDR5 has unsafe behavior
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal bcd_to_seg:BTS|mod_10_re_counter:CNT1|count[3]
+Warning (13012): Latch led_counter_decoder:LD|LEDR6 has unsafe behavior
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal bcd_to_seg:BTS|mod_10_re_counter:CNT1|count[1]
+Warning (13012): Latch led_counter_decoder:LD|LEDR8 has unsafe behavior
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal bcd_to_seg:BTS|mod_10_re_counter:CNT1|count[3]
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seven_seg7[0]" is stuck at GND
+    Warning (13410): Pin "seven_seg7[1]" is stuck at GND
+    Warning (13410): Pin "seven_seg7[3]" is stuck at VCC
+    Warning (13410): Pin "seven_seg7[4]" is stuck at GND
+    Warning (13410): Pin "seven_seg7[5]" is stuck at GND
+    Warning (13410): Pin "seven_seg7[6]" is stuck at GND
+    Warning (13410): Pin "seven_seg8[0]" is stuck at VCC
+    Warning (13410): Pin "seven_seg8[1]" is stuck at VCC
+    Warning (13410): Pin "seven_seg8[2]" is stuck at VCC
+    Warning (13410): Pin "seven_seg8[3]" is stuck at VCC
+    Warning (13410): Pin "seven_seg8[4]" is stuck at VCC
+    Warning (13410): Pin "seven_seg8[5]" is stuck at VCC
+    Warning (13410): Pin "seven_seg8[6]" is stuck at VCC
+    Warning (13410): Pin "LEDR9" is stuck at GND
+Info (144001): Generated suppressed messages file D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/output_files/clk_gen.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "sw3"
+    Warning (15610): No output dependent on input pin "sw4"
+Info (21057): Implemented 242 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 66 output pins
+    Info (21061): Implemented 167 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 152 warnings
+    Info: Peak virtual memory: 321 megabytes
+    Info: Processing ended: Tue Dec 15 17:07:10 2015
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:07
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Users/gkagu/Desktop/digital1211/timer/test2-alm/output_files/clk_gen.map.smsg.
+
+

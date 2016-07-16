@@ -1,0 +1,25 @@
+module mod_24_re_counter(clk, count_ten, count, carry_p, button3,tap_out;
+    output reg [3:0] count;
+	 output reg [3:0] count_ten;
+	 output reg carry_p;
+	 input clk, button3;
+	 input [1:0] tap_out;
+	 wire clk_button;
+	 assign clk_button = (clk || (!button3 && tap_out));
+	 
+	 integer count_24=0;
+	 
+	 
+	 always@(posedge clk_button)
+	 begin
+	   if(count_24 < 24)
+	    begin
+	    count_24 <= count_24 + 1;
+	    carry_p <= 0;
+	    end
+	   else
+	    begin
+	    count <= 0;
+	    carry_p <= 1;
+	    end
+		end

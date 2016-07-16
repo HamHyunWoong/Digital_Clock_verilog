@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at led_counter_decoder.v(20): always construct contains both blocking and non-blocking assignments
+Warning (10262): Verilog HDL Event Control warning at alm.v(38): event expression is a constant

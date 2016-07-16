@@ -1,0 +1,5 @@
+
+State Machine - |clk_gen|bcd_to_seg:BTS|tap
+Name tap.1001 
+tap.0000 0 
+tap.1001 1 

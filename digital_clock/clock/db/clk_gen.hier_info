@@ -1,0 +1,534 @@
+|clk_gen
+sw1 => sw1.IN4
+sw2 => sw2.IN3
+sw3 => sw3.IN3
+sw4 => sw4.IN3
+button1 => button1.IN3
+button2 => button2.IN3
+button3 => button3.IN3
+button4 => button4.IN3
+clk => clk.IN1
+
+
+|clk_gen|seven_seg_decoder:SSD1
+bcd_in[0] => Decoder0.IN3
+bcd_in[1] => Decoder0.IN2
+bcd_in[2] => Decoder0.IN1
+bcd_in[3] => Decoder0.IN0
+game_bcd_in[0] => ~NO_FANOUT~
+game_bcd_in[1] => ~NO_FANOUT~
+game_bcd_in[2] => ~NO_FANOUT~
+game_bcd_in[3] => ~NO_FANOUT~
+
+
+|clk_gen|seven_seg_decoder:SSD2
+bcd_in[0] => Decoder0.IN3
+bcd_in[1] => Decoder0.IN2
+bcd_in[2] => Decoder0.IN1
+bcd_in[3] => Decoder0.IN0
+game_bcd_in[0] => ~NO_FANOUT~
+game_bcd_in[1] => ~NO_FANOUT~
+game_bcd_in[2] => ~NO_FANOUT~
+game_bcd_in[3] => ~NO_FANOUT~
+
+
+|clk_gen|seven_seg_decoder:SSD3
+bcd_in[0] => Decoder0.IN3
+bcd_in[1] => Decoder0.IN2
+bcd_in[2] => Decoder0.IN1
+bcd_in[3] => Decoder0.IN0
+game_bcd_in[0] => ~NO_FANOUT~
+game_bcd_in[1] => ~NO_FANOUT~
+game_bcd_in[2] => ~NO_FANOUT~
+game_bcd_in[3] => ~NO_FANOUT~
+
+
+|clk_gen|seven_seg_decoder:SSD4
+bcd_in[0] => Decoder0.IN3
+bcd_in[1] => Decoder0.IN2
+bcd_in[2] => Decoder0.IN1
+bcd_in[3] => Decoder0.IN0
+game_bcd_in[0] => ~NO_FANOUT~
+game_bcd_in[1] => ~NO_FANOUT~
+game_bcd_in[2] => ~NO_FANOUT~
+game_bcd_in[3] => ~NO_FANOUT~
+
+
+|clk_gen|seven_seg_decoder:SSD5
+bcd_in[0] => Decoder0.IN3
+bcd_in[1] => Decoder0.IN2
+bcd_in[2] => Decoder0.IN1
+bcd_in[3] => Decoder0.IN0
+game_bcd_in[0] => ~NO_FANOUT~
+game_bcd_in[1] => ~NO_FANOUT~
+game_bcd_in[2] => ~NO_FANOUT~
+game_bcd_in[3] => ~NO_FANOUT~
+
+
+|clk_gen|seven_seg_decoder:SSD6
+bcd_in[0] => Decoder0.IN3
+bcd_in[1] => Decoder0.IN2
+bcd_in[2] => Decoder0.IN1
+bcd_in[3] => Decoder0.IN0
+game_bcd_in[0] => ~NO_FANOUT~
+game_bcd_in[1] => ~NO_FANOUT~
+game_bcd_in[2] => ~NO_FANOUT~
+game_bcd_in[3] => ~NO_FANOUT~
+
+
+|clk_gen|seven_seg_AP_decoder:APD
+bcd_in[0] => Equal0.IN63
+bcd_in[0] => Equal1.IN63
+bcd_in[1] => Equal0.IN62
+bcd_in[1] => Equal1.IN62
+bcd_in[2] => Equal0.IN61
+bcd_in[2] => Equal1.IN61
+bcd_in[3] => Equal0.IN60
+bcd_in[3] => Equal1.IN60
+
+
+|clk_gen|seven_seg_decoder:SSD8
+bcd_in[0] => Decoder0.IN3
+bcd_in[1] => Decoder0.IN2
+bcd_in[2] => Decoder0.IN1
+bcd_in[3] => Decoder0.IN0
+game_bcd_in[0] => ~NO_FANOUT~
+game_bcd_in[1] => ~NO_FANOUT~
+game_bcd_in[2] => ~NO_FANOUT~
+game_bcd_in[3] => ~NO_FANOUT~
+
+
+|clk_gen|alm:AL
+button1 => LED_alm.OUTPUTSELECT
+button1 => LED_alm.OUTPUTSELECT
+button1 => alm_min10.LATCH_ENABLE
+button1 => alm_hou01.LATCH_ENABLE
+button1 => alm_hou10.LATCH_ENABLE
+button1 => alm_min01.LATCH_ENABLE
+button1 => blink_count66[0]$latch.ACLR
+button1 => blink_count66[1]$latch.ACLR
+button1 => blink_count66[2]$latch.ACLR
+button1 => blink_count66[3]$latch.ACLR
+button1 => blink_count55[0]$latch.ACLR
+button1 => blink_count55[1]$latch.ACLR
+button1 => blink_count55[2]$latch.ACLR
+button1 => blink_count55[3]$latch.ACLR
+button1 => blink_count44[0]$latch.ACLR
+button1 => blink_count44[1]$latch.ACLR
+button1 => blink_count44[2]$latch.ACLR
+button1 => blink_count44[3]$latch.ACLR
+button1 => blink_count33[0]$latch.ACLR
+button1 => blink_count33[1]$latch.ACLR
+button1 => blink_count33[2]$latch.ACLR
+button1 => blink_count33[3]$latch.ACLR
+button1 => blink_count22[0]$latch.ACLR
+button1 => blink_count22[1]$latch.ACLR
+button1 => blink_count22[2]$latch.ACLR
+button1 => blink_count22[3]$latch.ACLR
+button1 => blink_count11[0]$latch.ACLR
+button1 => blink_count11[1]$latch.ACLR
+button1 => blink_count11[2]$latch.ACLR
+button1 => blink_count11[3]$latch.ACLR
+button2 => ~NO_FANOUT~
+button3 => button3.IN2
+button4 => ~NO_FANOUT~
+sw1 => ~NO_FANOUT~
+sw2 => ~NO_FANOUT~
+sw3 => ~NO_FANOUT~
+sw4 => ~NO_FANOUT~
+clk => clk.IN1
+tap_out[0] => Equal0.IN31
+tap_out[0] => Equal1.IN0
+tap_out[0] => Equal2.IN31
+tap_out[0] => Equal3.IN31
+tap_out[0] => Equal4.IN0
+tap_out[0] => Equal5.IN31
+tap_out[1] => Equal0.IN30
+tap_out[1] => Equal1.IN31
+tap_out[1] => Equal2.IN0
+tap_out[1] => Equal3.IN30
+tap_out[1] => Equal4.IN31
+tap_out[1] => Equal5.IN0
+setting_toggle => blink_count11.IN0
+
+
+|clk_gen|alm:AL|mod_10_re_counter:CNT11
+clk => clk_button.IN1
+button3 => clk_button.IN1
+button4 => ~NO_FANOUT~
+tap_out[0] => WideOr0.IN0
+tap_out[1] => WideOr0.IN1
+gap[0] => ~NO_FANOUT~
+gap[1] => ~NO_FANOUT~
+gap[2] => ~NO_FANOUT~
+gap[3] => ~NO_FANOUT~
+
+
+|clk_gen|alm:AL|mod_06_re_counter:CNT22
+minus => ~NO_FANOUT~
+button3 => ~NO_FANOUT~
+button4 => ~NO_FANOUT~
+clk => carry_p~reg0.CLK
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+gap[0] => ~NO_FANOUT~
+gap[1] => ~NO_FANOUT~
+gap[2] => ~NO_FANOUT~
+gap[3] => ~NO_FANOUT~
+
+
+|clk_gen|alm:AL|mod_10_re_counter:CNT33
+clk => clk_button.IN1
+button3 => clk_button.IN1
+button4 => ~NO_FANOUT~
+tap_out[0] => WideOr0.IN0
+tap_out[1] => WideOr0.IN1
+gap[0] => ~NO_FANOUT~
+gap[1] => ~NO_FANOUT~
+gap[2] => ~NO_FANOUT~
+gap[3] => ~NO_FANOUT~
+
+
+|clk_gen|alm:AL|mod_06_re_counter:CNT44
+minus => ~NO_FANOUT~
+button3 => ~NO_FANOUT~
+button4 => ~NO_FANOUT~
+clk => carry_p~reg0.CLK
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+gap[0] => ~NO_FANOUT~
+gap[1] => ~NO_FANOUT~
+gap[2] => ~NO_FANOUT~
+gap[3] => ~NO_FANOUT~
+
+
+|clk_gen|alm:AL|mod_24_re_counter:CNT2424
+clk => clk_button.IN1
+button3 => clk_button.IN1
+tap_out[0] => WideOr0.IN0
+tap_out[1] => WideOr0.IN1
+
+
+|clk_gen|decoer_selecter:DS
+sw1 => state.IN1
+sw1 => bcd_out_led[0].OUTPUTSELECT
+sw1 => bcd_out_led[1].OUTPUTSELECT
+sw1 => bcd_out_led[2].OUTPUTSELECT
+sw1 => bcd_out_led[3].OUTPUTSELECT
+sw1 => bcd_out7[0].OUTPUTSELECT
+sw1 => bcd_out7[1].OUTPUTSELECT
+sw1 => bcd_out7[2].OUTPUTSELECT
+sw1 => bcd_out7[3].OUTPUTSELECT
+sw1 => bcd_out6[0].OUTPUTSELECT
+sw1 => bcd_out6[1].OUTPUTSELECT
+sw1 => bcd_out6[2].OUTPUTSELECT
+sw1 => bcd_out6[3].OUTPUTSELECT
+sw1 => bcd_out5[0].OUTPUTSELECT
+sw1 => bcd_out5[1].OUTPUTSELECT
+sw1 => bcd_out5[2].OUTPUTSELECT
+sw1 => bcd_out5[3].OUTPUTSELECT
+sw1 => bcd_out4[0].OUTPUTSELECT
+sw1 => bcd_out4[1].OUTPUTSELECT
+sw1 => bcd_out4[2].OUTPUTSELECT
+sw1 => bcd_out4[3].OUTPUTSELECT
+sw1 => bcd_out3[0].OUTPUTSELECT
+sw1 => bcd_out3[1].OUTPUTSELECT
+sw1 => bcd_out3[2].OUTPUTSELECT
+sw1 => bcd_out3[3].OUTPUTSELECT
+sw1 => bcd_out2[0].OUTPUTSELECT
+sw1 => bcd_out2[1].OUTPUTSELECT
+sw1 => bcd_out2[2].OUTPUTSELECT
+sw1 => bcd_out2[3].OUTPUTSELECT
+sw1 => bcd_out1[0].OUTPUTSELECT
+sw1 => bcd_out1[1].OUTPUTSELECT
+sw1 => bcd_out1[2].OUTPUTSELECT
+sw1 => bcd_out1[3].OUTPUTSELECT
+sw1 => state.OUTPUTSELECT
+sw1 => state.DATAIN
+bcd_in1[0] => bcd_out1[0].DATAA
+bcd_in1[1] => bcd_out1[1].DATAA
+bcd_in1[2] => bcd_out1[2].DATAA
+bcd_in1[3] => bcd_out1[3].DATAA
+bcd_in2[0] => bcd_out2[0].DATAA
+bcd_in2[1] => bcd_out2[1].DATAA
+bcd_in2[2] => bcd_out2[2].DATAA
+bcd_in2[3] => bcd_out2[3].DATAA
+bcd_in3[0] => bcd_out3[0].DATAA
+bcd_in3[1] => bcd_out3[1].DATAA
+bcd_in3[2] => bcd_out3[2].DATAA
+bcd_in3[3] => bcd_out3[3].DATAA
+bcd_in4[0] => bcd_out4[0].DATAA
+bcd_in4[1] => bcd_out4[1].DATAA
+bcd_in4[2] => bcd_out4[2].DATAA
+bcd_in4[3] => bcd_out4[3].DATAA
+bcd_in5[0] => bcd_out5[0].DATAA
+bcd_in5[1] => bcd_out5[1].DATAA
+bcd_in5[2] => bcd_out5[2].DATAA
+bcd_in5[3] => bcd_out5[3].DATAA
+bcd_in6[0] => bcd_out6[0].DATAA
+bcd_in6[1] => bcd_out6[1].DATAA
+bcd_in6[2] => bcd_out6[2].DATAA
+bcd_in6[3] => bcd_out6[3].DATAA
+bcd_in7[0] => bcd_out7[0].DATAA
+bcd_in7[1] => bcd_out7[1].DATAA
+bcd_in7[2] => bcd_out7[2].DATAA
+bcd_in7[3] => bcd_out7[3].DATAA
+bcd_in_led[0] => bcd_out_led[0].DATAA
+bcd_in_led[1] => bcd_out_led[1].DATAA
+bcd_in_led[2] => bcd_out_led[2].DATAA
+bcd_in_led[3] => bcd_out_led[3].DATAA
+bcd_in11[0] => ~NO_FANOUT~
+bcd_in11[1] => ~NO_FANOUT~
+bcd_in11[2] => ~NO_FANOUT~
+bcd_in11[3] => ~NO_FANOUT~
+bcd_in22[0] => ~NO_FANOUT~
+bcd_in22[1] => ~NO_FANOUT~
+bcd_in22[2] => ~NO_FANOUT~
+bcd_in22[3] => ~NO_FANOUT~
+bcd_in33[0] => ~NO_FANOUT~
+bcd_in33[1] => ~NO_FANOUT~
+bcd_in33[2] => ~NO_FANOUT~
+bcd_in33[3] => ~NO_FANOUT~
+bcd_in44[0] => ~NO_FANOUT~
+bcd_in44[1] => ~NO_FANOUT~
+bcd_in44[2] => ~NO_FANOUT~
+bcd_in44[3] => ~NO_FANOUT~
+bcd_in55[0] => ~NO_FANOUT~
+bcd_in55[1] => ~NO_FANOUT~
+bcd_in55[2] => ~NO_FANOUT~
+bcd_in55[3] => ~NO_FANOUT~
+bcd_in66[0] => ~NO_FANOUT~
+bcd_in66[1] => ~NO_FANOUT~
+bcd_in66[2] => ~NO_FANOUT~
+bcd_in66[3] => ~NO_FANOUT~
+bcd_in77[0] => ~NO_FANOUT~
+bcd_in77[1] => ~NO_FANOUT~
+bcd_in77[2] => ~NO_FANOUT~
+bcd_in77[3] => ~NO_FANOUT~
+bcd_in_ledled[0] => ~NO_FANOUT~
+bcd_in_ledled[1] => ~NO_FANOUT~
+bcd_in_ledled[2] => ~NO_FANOUT~
+bcd_in_ledled[3] => ~NO_FANOUT~
+
+
+|clk_gen|led_counter_decoder:LD
+clk => LEDR8$latch.DATAIN
+clk => LEDR0$latch.DATAIN
+clk => LEDR1$latch.DATAIN
+clk => LEDR2$latch.DATAIN
+clk => LEDR3$latch.DATAIN
+clk => LEDR4$latch.DATAIN
+clk => LEDR5$latch.DATAIN
+clk => LEDR6$latch.DATAIN
+clk => LEDR7$latch.DATAIN
+bcd_in[0] => Equal0.IN31
+bcd_in[0] => Equal1.IN0
+bcd_in[0] => Equal2.IN31
+bcd_in[0] => Equal3.IN1
+bcd_in[0] => Equal4.IN31
+bcd_in[0] => Equal5.IN1
+bcd_in[0] => Equal6.IN31
+bcd_in[0] => Equal7.IN2
+bcd_in[0] => Equal8.IN31
+bcd_in[0] => Equal9.IN1
+bcd_in[1] => Equal0.IN30
+bcd_in[1] => Equal1.IN31
+bcd_in[1] => Equal2.IN0
+bcd_in[1] => Equal3.IN0
+bcd_in[1] => Equal4.IN30
+bcd_in[1] => Equal5.IN31
+bcd_in[1] => Equal6.IN1
+bcd_in[1] => Equal7.IN1
+bcd_in[1] => Equal8.IN30
+bcd_in[1] => Equal9.IN31
+bcd_in[2] => Equal0.IN29
+bcd_in[2] => Equal1.IN30
+bcd_in[2] => Equal2.IN30
+bcd_in[2] => Equal3.IN31
+bcd_in[2] => Equal4.IN0
+bcd_in[2] => Equal5.IN0
+bcd_in[2] => Equal6.IN0
+bcd_in[2] => Equal7.IN0
+bcd_in[2] => Equal8.IN29
+bcd_in[2] => Equal9.IN30
+bcd_in[3] => Equal0.IN28
+bcd_in[3] => Equal1.IN29
+bcd_in[3] => Equal2.IN29
+bcd_in[3] => Equal3.IN30
+bcd_in[3] => Equal4.IN29
+bcd_in[3] => Equal5.IN30
+bcd_in[3] => Equal6.IN30
+bcd_in[3] => Equal7.IN31
+bcd_in[3] => Equal8.IN0
+bcd_in[3] => Equal9.IN0
+
+
+|clk_gen|mode_selector:M1
+sw1 => switch1.IN0
+sw1 => switch1and2.IN0
+sw1 => switch2.IN0
+sw1 => toggle_key.IN0
+sw2 => switch2.IN1
+sw2 => switch1and2.IN1
+sw2 => switch1.IN1
+sw2 => toggle_key.IN1
+sw3 => ~NO_FANOUT~
+sw4 => ~NO_FANOUT~
+button1 => toggle_key.IN1
+button2 => tap_out[0]~reg0.CLK
+button2 => tap_out[1]~reg0.CLK
+button3 => sw1_button3.IN1
+button3 => sw2_button3.IN1
+
+
+|clk_gen|counter_mod_25000000:U1
+clk => counter_out[0].CLK
+clk => counter_out[1].CLK
+clk => counter_out[2].CLK
+clk => counter_out[3].CLK
+clk => counter_out[4].CLK
+clk => counter_out[5].CLK
+clk => counter_out[6].CLK
+clk => counter_out[7].CLK
+clk => counter_out[8].CLK
+clk => counter_out[9].CLK
+clk => counter_out[10].CLK
+clk => counter_out[11].CLK
+clk => counter_out[12].CLK
+clk => counter_out[13].CLK
+clk => counter_out[14].CLK
+clk => counter_out[15].CLK
+clk => counter_out[16].CLK
+clk => counter_out[17].CLK
+clk => counter_out[18].CLK
+clk => counter_out[19].CLK
+clk => counter_out[20].CLK
+clk => counter_out[21].CLK
+clk => counter_out[22].CLK
+clk => counter_out[23].CLK
+clk => counter_out[24].CLK
+rst => counter_out[0].ACLR
+rst => counter_out[1].ACLR
+rst => counter_out[2].ACLR
+rst => counter_out[3].ACLR
+rst => counter_out[4].ACLR
+rst => counter_out[5].ACLR
+rst => counter_out[6].ACLR
+rst => counter_out[7].ACLR
+rst => counter_out[8].ACLR
+rst => counter_out[9].ACLR
+rst => counter_out[10].ACLR
+rst => counter_out[11].ACLR
+rst => counter_out[12].ACLR
+rst => counter_out[13].ACLR
+rst => counter_out[14].ACLR
+rst => counter_out[15].ACLR
+rst => counter_out[16].ACLR
+rst => counter_out[17].ACLR
+rst => counter_out[18].ACLR
+rst => counter_out[19].ACLR
+rst => counter_out[20].ACLR
+rst => counter_out[21].ACLR
+rst => counter_out[22].ACLR
+rst => counter_out[23].ACLR
+rst => counter_out[24].ACLR
+
+
+|clk_gen|dff_async_reset:U2
+data => q~reg0.DATAIN
+clk => q~reg0.CLK
+reset => q~reg0.ACLR
+
+
+|clk_gen|bcd_to_seg:BTS
+button1 => ~NO_FANOUT~
+button2 => ~NO_FANOUT~
+button3 => button3.IN3
+button4 => button4.IN3
+sw1 => ~NO_FANOUT~
+sw2 => ~NO_FANOUT~
+sw3 => ~NO_FANOUT~
+sw4 => ~NO_FANOUT~
+clk => blink_count1.IN0
+clk => comb.IN0
+tap_out[0] => Equal0.IN31
+tap_out[0] => Equal1.IN0
+tap_out[0] => Equal2.IN31
+tap_out[0] => Equal3.IN31
+tap_out[0] => Equal4.IN0
+tap_out[0] => Equal5.IN31
+tap_out[1] => Equal0.IN30
+tap_out[1] => Equal1.IN31
+tap_out[1] => Equal2.IN0
+tap_out[1] => Equal3.IN30
+tap_out[1] => Equal4.IN31
+tap_out[1] => Equal5.IN0
+setting_toggle => blink_count1.IN1
+setting_toggle => comb.IN1
+
+
+|clk_gen|bcd_to_seg:BTS|mod_10_re_counter:CNT1
+clk => clk_button.IN1
+button3 => clk_button.IN1
+button4 => ~NO_FANOUT~
+tap_out[0] => WideOr0.IN0
+tap_out[1] => WideOr0.IN1
+gap[0] => ~NO_FANOUT~
+gap[1] => ~NO_FANOUT~
+gap[2] => ~NO_FANOUT~
+gap[3] => ~NO_FANOUT~
+
+
+|clk_gen|bcd_to_seg:BTS|mod_06_re_counter:CNT2
+minus => ~NO_FANOUT~
+button3 => ~NO_FANOUT~
+button4 => ~NO_FANOUT~
+clk => carry_p~reg0.CLK
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+gap[0] => ~NO_FANOUT~
+gap[1] => ~NO_FANOUT~
+gap[2] => ~NO_FANOUT~
+gap[3] => ~NO_FANOUT~
+
+
+|clk_gen|bcd_to_seg:BTS|mod_10_re_counter:CNT3
+clk => clk_button.IN1
+button3 => clk_button.IN1
+button4 => ~NO_FANOUT~
+tap_out[0] => WideOr0.IN0
+tap_out[1] => WideOr0.IN1
+gap[0] => ~NO_FANOUT~
+gap[1] => ~NO_FANOUT~
+gap[2] => ~NO_FANOUT~
+gap[3] => ~NO_FANOUT~
+
+
+|clk_gen|bcd_to_seg:BTS|mod_06_re_counter:CNT4
+minus => ~NO_FANOUT~
+button3 => ~NO_FANOUT~
+button4 => ~NO_FANOUT~
+clk => carry_p~reg0.CLK
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+gap[0] => ~NO_FANOUT~
+gap[1] => ~NO_FANOUT~
+gap[2] => ~NO_FANOUT~
+gap[3] => ~NO_FANOUT~
+
+
+|clk_gen|bcd_to_seg:BTS|mod_24_re_counter:CNT24
+clk => clk_button.IN1
+button3 => clk_button.IN1
+tap_out[0] => WideOr0.IN0
+tap_out[1] => WideOr0.IN1
+
+

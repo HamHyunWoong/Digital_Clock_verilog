@@ -1,0 +1,32 @@
+module GameMain(input gameclk1, output[3:0] gamecount_out1);
+
+reg [3:0] gamecount1;
+reg [3:0] gamecount1;
+reg [3:0] gamecount1;
+reg [3:0] gamecount1;
+@always(posedge gameclk1 or negedge rst)
+	begin
+	
+	 if(!rst)
+        begin
+          gamecount1 <=0;
+          
+        end
+    else if(gamecount1 <9 && btn2_tap != 0) ////////////pls mod
+      begin
+        gamecount1 <= gamecount1 +1;
+      end
+	 else if(count)
+		begin
+			gamecount1 <= 0;
+		end
+	end
+
+
+
+	
+	
+	assign gamecount_out1 = gamecount1;
+
+	
+endmodule

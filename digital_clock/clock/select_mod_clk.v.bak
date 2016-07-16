@@ -1,0 +1,17 @@
+select_mod_clk(input clk , input sw1,input sw2, output reg time_clk1 , output reg time_clk2);
+
+always@(1)
+begin
+	if(sw1 ==0)
+		begin
+			time_clk1 <= clk;
+			time_clk2 <=0;
+		end
+	else if(sw1==1)
+		begin
+			time_clk1 <= 0;
+			time_clk2 <=clk;
+		end
+
+
+end
